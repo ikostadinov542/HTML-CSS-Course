@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Lugrasimo&family=Merriweather:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Great+Vibes&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Lugrasimo&family=Merriweather:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@900&display=swap');
+        
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font: 16px/1.5 Lato, sans-serif;
+        }
+        
+        
+        body {
+            padding: 2em 0;
+            font: inherit;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0 2em 1em;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            left: 8%;
+            right: 7%;
+            bottom: 0;
+            border-bottom: 3px solid rgb(102, 165, 173, 0.9);
+        }
+        
+        #menu {
+            display: none;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo p {
+            margin-left: 0.5em;
+            font: 25px/1.5 Lugrasimo, serif;
+            
+        }
+        
+        .logo img:hover {
+            box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1); 
+        }
+        
+        .logo img {
+            border-radius: 50%;
+            width: 10em;
+            padding: 0.5em;
+            margin-left: 6.3em;
+            opacity: 0.7;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-out;
+            
+            
+        }
+        
+        .navigation ul {
+            display: flex;
+            list-style-type: none;
+            margin: 2em;
+            margin-right: 6.3em;
+            
+        }
+        
+        .navigation ul li {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        .navigation ul li a {
+            text-decoration: none;
+            color: rgb(16, 66, 110);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: 2px solid rgb(102,165,173);
+            background-color: #fff;
+            width: 120px;
+            padding: 0.7em 1em;
+            margin: 1em;
+            
+            &:hover {
+                transition: 400ms ease-in;
+                box-shadow: 0 0 1em 0;
+                background: rgb(73,132,184);
+                color: rgb(252,198,226);
+                
+                transform: scale(1.1); 
+            }
+            
+        }
+        
+        
+        @media (max-width: 789px) {
+            .navigation ul li a {
+                padding: 0 1em;
+                
+            }
+        }
+        
+        @media (max-width: 661px) {
+            .navigation ul {
+                flex-direction: column;
+                
+            }
+            
+            .header {
+                justify-content: space-evenly;
+                
+            }
+            
+            .navigation ul li a {
+                line-height: 1.8;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            
+            body {
+                padding: 2em; 
+                margin: 2em;
+            }
+            
+            .logo p {
+                margin: 0;
+            }
+            
+            .logo img {
+                margin: 0;
+            }
+            .site-navigation ul{
+                display: none;
+            }
+            
+            #menu {
+                font: inherit;
+                margin-right: 2em;
+                display: block;
+            }
+            
+            .logo img {
+                border-radius: 50%;
+                width: 6em;
+                padding: 0.5em; 
+            }
+            
+            .header {
+                justify-content: space-around;
+            }
+        }
+        
+        .main {
+            margin-top: 1em;
+            width: 100vw;
+            height: 80vh;
+            background: 
+            linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), 
+            url('https://images.unsplash.com/photo-1531405140001-afced33aabe5?w=1650&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxjb2RpbmclMjBkZXNrfGVufDB8fDB8fHww');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="flex.html">
+                <img src="Profile-pic-IK Resized.jpg" alt="" >
+            </a>
+            <p>IK</p>
+        </div>
+        <div class="navigation">
+            <nav class="site-navigation">
+                <p id="menu">Menu</p>
+                <ul>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="#">Contact me</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Products</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="main">
+    </div>
+    
+    <div class="footer">
+        
+    </div>
+</body>
+</html>
